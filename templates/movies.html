@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies</title>
+</head>
+<body>
+    <h1>Movie List</h1>
+    <a href="/">Go Back</a><br><br>
+    <ul>
+        {% for movie in movies %}
+        <li>
+            {{ movie['title'] }} ({{ movie['genre'] }}, Rating: {{ movie['rating'] }})
+            <form action="/delete/{{ movie['id'] }}" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+            <a href="/recommend/{{ movie['title'] }}">Get Recommendations</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
